@@ -1,0 +1,30 @@
+server:
+  port: 8005
+spring:
+  application:
+    name: comment-service
+  datasource:
+    url: jdbc:mariadb://localhost:3306/micro_comment?createDatabaseIfNotExist=true
+    username: root
+    password: 
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      data-source-properties:
+        useUnicode: true
+        characterEncoding: UTF-8
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+info:
+  application:
+    name: microservice comment
+    description: this app micro service comment
+    version: 1.0.0
